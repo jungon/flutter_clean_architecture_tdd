@@ -1,7 +1,7 @@
 part of 'number_trivia_bloc.dart';
 
 abstract class NumberTriviaState extends Equatable {
-  NumberTriviaState([List props = const <dynamic>[]]) : super(props);
+  NumberTriviaState([List<Object> props = const <dynamic>[]]) : super(props);
 }
 
 class NumberTriviaInitial extends NumberTriviaState {
