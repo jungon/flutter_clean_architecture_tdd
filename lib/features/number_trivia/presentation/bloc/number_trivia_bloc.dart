@@ -34,7 +34,7 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
         getRandomNumberTrivia = random;
 
   @override
-  NumberTriviaState get initialState => NumberTriviaInitial();
+  NumberTriviaState get initialState => Empty();
 
   @override
   Stream<NumberTriviaState> mapEventToState(

@@ -34,7 +34,7 @@ void main() {
   });
 
   test('initialState should be Empty', () {
-    expect(bloc.initialState, equals(NumberTriviaInitial()));
+    expect(bloc.initialState, equals(Empty()));
   });
 
   group('GetTriviaForConcreteNumber', () {
@@ -63,10 +63,7 @@ void main() {
 
       bloc.dispatch(GetTriviaForConcreteNumber(tNumberString));
 
-      final expected = [
-        NumberTriviaInitial(),
-        Error(message: INVALID_INPUT_FAILURE_MESSAGE)
-      ];
+      final expected = [Empty(), Error(message: INVALID_INPUT_FAILURE_MESSAGE)];
       expectLater(bloc.state, emitsInOrder(expected));
     });
 
@@ -90,7 +87,7 @@ void main() {
       bloc.dispatch(GetTriviaForConcreteNumber(tNumberString));
 
       final expected = [
-        NumberTriviaInitial(),
+        Empty(),
         Loading(),
         Loaded(trivia: tNumberTrivia),
       ];
@@ -105,7 +102,7 @@ void main() {
       bloc.dispatch(GetTriviaForConcreteNumber(tNumberString));
 
       final expected = [
-        NumberTriviaInitial(),
+        Empty(),
         Loading(),
         Error(message: SERVER_FAILURE_MESSAGE)
       ];
@@ -122,7 +119,7 @@ void main() {
       bloc.dispatch(GetTriviaForConcreteNumber(tNumberString));
 
       final expected = [
-        NumberTriviaInitial(),
+        Empty(),
         Loading(),
         Error(message: CACHE_FAILURE_MESSAGE)
       ];
@@ -151,7 +148,7 @@ void main() {
       bloc.dispatch(GetTriviaForRandomNumber());
 
       final expected = [
-        NumberTriviaInitial(),
+        Empty(),
         Loading(),
         Loaded(trivia: tNumberTrivia),
       ];
@@ -165,7 +162,7 @@ void main() {
       bloc.dispatch(GetTriviaForRandomNumber());
 
       final expected = [
-        NumberTriviaInitial(),
+        Empty(),
         Loading(),
         Error(message: SERVER_FAILURE_MESSAGE)
       ];
@@ -181,7 +178,7 @@ void main() {
       bloc.dispatch(GetTriviaForRandomNumber());
 
       final expected = [
-        NumberTriviaInitial(),
+        Empty(),
         Loading(),
         Error(message: CACHE_FAILURE_MESSAGE)
       ];
