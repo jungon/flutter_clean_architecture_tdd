@@ -3,6 +3,7 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/presentatio
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../app_localizations.dart';
 import '../../../../injection_container.dart';
 
 class NumberTriviaPage extends StatelessWidget {
@@ -28,7 +29,10 @@ class NumberTriviaPage extends StatelessWidget {
               BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
                   builder: (context, state) {
                 if (state is Empty) {
-                  return MessageDisplay(message: 'Start Searching!');
+                  return MessageDisplay(
+                    message:
+                        AppLocalizations.of(context).translate('searching'),
+                  );
                 } else if (state is Loading) {
                   return LoadingWidget();
                 } else if (state is Loaded) {

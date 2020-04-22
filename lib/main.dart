@@ -1,6 +1,7 @@
 import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/pages/number_trivia_page.dart';
 import 'package:flutter/material.dart';
 
+import 'app_localizations.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -18,6 +19,15 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.green.shade800,
         accentColor: Colors.green.shade600,
       ),
+      localizationsDelegates: localizationsDelegate,
+      supportedLocales: supportedLocales,
+      localeResolutionCallback: (locale, supportedLocales) {
+        Locale supportedLocale = supportedLocales.firstWhere((supportedLocale) {
+          return supportedLocale.languageCode == locale.languageCode &&
+              supportedLocale.countryCode == locale.countryCode;
+        });
+        return supportedLocale ?? supportedLocales.first;
+      },
       home: NumberTriviaPage(),
     );
   }

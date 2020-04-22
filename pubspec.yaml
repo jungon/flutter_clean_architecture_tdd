@@ -9,6 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter    
+
   # Service locator
   get_it: ^2.0.1
   # Bloc for state management
@@ -30,3 +34,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - l10n/en.json
+    - l10n/ko.json

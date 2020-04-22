@@ -1,3 +1,4 @@
+import 'package:clean_architecture_tdd_course/app_localizations.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +37,9 @@ class _TriviaControlsState extends State<TriviaControls> {
           children: <Widget>[
             Expanded(
                 child: RaisedButton(
-              child: Text('Search'),
+              child: Text(
+                AppLocalizations.of(context).translate('searchButton'),
+              ),
               color: Theme.of(context).accentColor,
               textTheme: ButtonTextTheme.primary,
               onPressed: _dispatchConcrete,
@@ -44,7 +47,9 @@ class _TriviaControlsState extends State<TriviaControls> {
             SizedBox(width: 10),
             Expanded(
                 child: RaisedButton(
-              child: Text('Get random trivia'),
+              child: Text(
+                AppLocalizations.of(context).translate('randomButton'),
+              ),
               color: Theme.of(context).accentColor,
               textTheme: ButtonTextTheme.primary,
               onPressed: _dispatchRandom,
