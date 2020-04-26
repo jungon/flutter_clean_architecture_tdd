@@ -26,7 +26,7 @@ class AppLocalizations {
   }
 
   static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+      AppLocalizationsDelegate._();
 
   Map<String, String> _localizedStrings;
 
@@ -46,13 +46,11 @@ class AppLocalizations {
   }
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationsDelegate();
+class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+  const AppLocalizationsDelegate._();
 
   @override
   bool isSupported(Locale locale) {
-    // supportedLocales.map((supportedLocale)=>supportedLocale.toString()).contains(locale.languageCode)
     return supportedLocales
         .map((supportedLocale) => supportedLocale.languageCode)
         .contains(locale.languageCode);
